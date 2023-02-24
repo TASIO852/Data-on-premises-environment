@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+    tableau-server:
+         hostname: localhost
+         volumes:
+              - <your-tsm-command-file>:/docker/config/tsm-commands:ro
+              - <your-config-file>:/docker/config/config.json:ro
+         ports:
+              - "3131:8080"
+         image: ${IMAGE_NAME}
+         environment:
+              - LICENSE_KEY=<license-key>

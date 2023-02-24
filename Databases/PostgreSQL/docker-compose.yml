@@ -1,0 +1,21 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  postgres:
+    image: postgres
+    container_name: postgresql
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 5432:5432
+
+#! usar programa
+# docker exec -it doc_db_1 psql -U postgres -W postgres
